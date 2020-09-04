@@ -1,6 +1,6 @@
 ## Project description.
 
-Creates a custom Wordpress Gutember plugin that will import automatically a kinder iframes into a page or blog post as a custom block.
+Custom WP Gutemberg plugin that will import automatically a kinder iframes into a page or blog post as a custom block.
 
 ## Dev stack
 
@@ -16,7 +16,7 @@ TODO
 ## Installation
 
 If you just want to install the pluggin:
-In this folder you will find a `kinder-block.zip` file which contains a production-ready pluggin.
+In this folder you will find a `kinder-block-demo.zip` file which contains a production-ready pluggin.
 
 To install it, you can either decompress this zip file into the Wordpress pluggin folder.
 Alternatively on the Wordpress UI, manually select this zip file to install.
