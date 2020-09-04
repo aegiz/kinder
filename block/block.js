@@ -1,44 +1,27 @@
 const { registerBlockType } = wp.blocks;
-const { Component, Fragment } = wp.element;
-const { Placeholder, Disabled } = wp.components;
-
+const { Component } = wp.element;
 const {
-	RichText,
-	InspectorControls,
-	BlockControls,
-	AlignmentToolbar,
-} = wp.blockEditor;
-const {
-	ToggleControl,
-	PanelBody,
-	PanelRow,
-	CheckboxControl,
-	SelectControl,
-	ColorPicker,
+	Placeholder,
+	Disabled,
 	Toolbar,
 	IconButton,
+	TextControl,
 } = wp.components;
 
-class FirstBlockEdit extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			editMode: true,
-		};
-	}
+const { BlockControls } = wp.blockEditor;
+
+class KinderBlockEdit extends Component {
+	state = {
+		editMode: true,
+	};
 
 	getBlockControls = () => {
-		const { attributes, setAttributes } = this.props;
 		return (
 			<BlockControls>
-				<AlignmentToolbar
-					value={attributes.textAlignment}
-					onChange={(newalign) => setAttributes({ textAlignment: newalign })}
-				/>
 				<Toolbar>
 					<IconButton
 						label={this.state.editMode ? "Preview" : "Edit"}
-						icon={this.state.editMode ? "format-image" : "edit"}
+						icon={this.state.editMode ? "welcome-view-site" : "edit"}
 						onClick={() => this.setState({ editMode: !this.state.editMode })}
 					/>
 				</Toolbar>
@@ -48,36 +31,29 @@ class FirstBlockEdit extends Component {
 
 	render() {
 		const { attributes, setAttributes } = this.props;
-
-		const alignmentClass =
-			attributes.textAlignment != null
-				? "has-text-align-" + attributes.textAlignment
-				: "";
-
 		return [
 			this.getBlockControls(),
-			<div className={alignmentClass}>
+			<div>
 				{this.state.editMode && (
-					<Fragment>
-						<RichText
-							tagName="h2"
-							placeholder="Write your heading here"
-							value={attributes.myRichHeading}
-							onChange={(newtext) => setAttributes({ myRichHeading: newtext })}
+					<div>
+						<div className="kinder-info">Kindly donate to this charity:</div>
+						<TextControl
+							placeholder="Write here the name of the charity"
+							value={attributes.kinderIframe}
+							onChange={(newtext) => setAttributes({ kinderIframe: newtext })}
 						/>
-						<RichText
-							tagName="p"
-							placeholder="Write your paragraph here"
-							value={attributes.myRichText}
-							onChange={(newtext) => setAttributes({ myRichText: newtext })}
-						/>
-					</Fragment>
+					</div>
 				)}
 				{!this.state.editMode && (
 					<Placeholder isColumnLayout={true}>
 						<Disabled>
-							<RichText.Content tagName="h2" value={attributes.myRichHeading} />
-							<RichText.Content tagName="p" value={attributes.myRichText} />
+							<iframe
+								className="kinder-iframe"
+								src={`https://embed.joinkinder.org/donate/?cause=${attributes.kinderIframe}`}
+								frameborder="0"
+								allow="autoplay; encrypted-media"
+								allowfullscreen
+							></iframe>
 						</Disabled>
 					</Placeholder>
 				)}
@@ -91,57 +67,24 @@ registerBlockType("cgb/block-kinder-block", {
 	category: "common",
 	icon: "smiley",
 	description:
-		"A custom Wordpress block to automatically import a Kinder iframer into an article or post",
+		"A custom Wordpress block to automatically import a Kinder iframe into an article or a post.",
 	keywords: ["kinder", "donation"],
 	attributes: {
-		myRichHeading: {
+		kinderIframe: {
 			type: "string",
-		},
-		myRichText: {
-			type: "string",
-			source: "html",
-			selector: "p",
-		},
-		textAlignment: {
-			type: "string",
-		},
-		toggle: {
-			type: "boolean",
-			default: true,
-		},
-		favoriteAnimal: {
-			type: "string",
-			default: "dogs",
-		},
-		favoriteColor: {
-			type: "string",
-			default: "#DDDDDD",
-		},
-		activateLasers: {
-			type: "boolean",
-			default: false,
 		},
 	},
-	supports: {
-		align: ["wide", "full"],
-	},
-	edit: FirstBlockEdit,
+	edit: KinderBlockEdit,
 	save: (props) => {
 		const { attributes } = props;
-
-		const alignmentClass =
-			attributes.textAlignment != null
-				? "has-text-align-" + attributes.textAlignment
-				: "";
-
 		return (
-			<div className={alignmentClass}>
-				<RichText.Content tagName="h2" value={attributes.myRichHeading} />
-				<RichText.Content tagName="p" value={attributes.myRichText} />
-				{attributes.activateLasers && (
-					<div className="lasers">Lasers activated</div>
-				)}
-			</div>
+			<iframe
+				className="kinder-iframe"
+				src={`https://embed.joinkinder.org/donate/?cause=${attributes.kinderIframe}`}
+				frameborder="0"
+				allow="autoplay; encrypted-media"
+				allowfullscreen
+			></iframe>
 		);
 	},
 });

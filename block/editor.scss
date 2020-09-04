@@ -5,11 +5,11 @@
  * which makes it higher in priority.
  */
 
-.wp-block-cgb-block-kinder-block  {
-  background: $green;
-  border: 0.2rem solid $black;
-  color: $black;
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 2rem;
+.block-editor__container .kinder-iframe {
+  width: 760px !important;
+  height: 340px;
+}
+
+.kinder-info {
+  font-style: italic;
 }

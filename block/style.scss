@@ -2,13 +2,10 @@
  * #.# Styles
  *
  * CSS for both Frontend+Backend.
+ *
  */
 
-.wp-block-cgb-block-kinder-block  {
-  background: $red;
-  border: 0.2rem solid $black;
-  color: $black;
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 2rem;
+.kinder-iframe {
+  width: 100% !important;
+  height: 340px;
 }
