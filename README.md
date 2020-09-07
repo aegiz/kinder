@@ -1,16 +1,28 @@
 ## Project description.
 
-Custom WP Gutemberg plugin that will import automatically a kinder iframes into a page or blog post as a custom block.
+This is a custom Wordpress/Gutemberg plugin that will import automatically a kinder iframe into a page or blog post as a custom block.
 
 ## Dev stack
 
-- React
-- PHP
+-  React
+-  PHP
 
 ## Project Structure (TODO)
 
 ```sh
-TODO
+.
+├── block/                    # This folder contains the code logic.
+│   └── block.js              # JS behaviour for the Frontend+Backend.
+│   └── editor.scss           # Specific styles for the Wordpress editor.
+│   └── style.scss            # CSS for both Frontend+Backend.
+├── blocks.js                 # This file initialize the JS.
+├── common.scss               # This style file include things like variables and mixins that are used across the project.
+├── demo/                     # This folder contains all the demo files.
+│   └── kinder-block-demo.zip # Final plugin archive.
+│   └── demo.mov              # Quick demo on the Wordpress UI.
+│   └── demo.gif              # Quick demo in GIF format.
+├── init.php                  # This file initialize the PHP plugin.
+└── README.md                 # This file
 ```
 
 ## Installation
@@ -19,23 +31,25 @@ If you just want to install the pluggin:
 In this folder you will find a `kinder-block-demo.zip` file which contains a production-ready pluggin.
 
 To install it, you can either decompress this zip file into the Wordpress pluggin folder.
-Alternatively on the Wordpress UI, manually select this zip file to install.
+Alternatively, on the Wordpress UI, you can manually select this zip file to install.
 
 Once the pluggin has been imported, don't forget to activate it!
 
 ## Usage
 
-Once the pluggin is active go to a page or article and try to add a block.
+Once the pluggin active, go to a page or article and try to add a block.
 You should now be able to see the Kinder block (it has a smiley icon).
 
-Then, to use it, simply type in the input the organization or charity you want to donate to.
-To make sure everything works fine, you can preview the embed by clicking on the little preview icon.
+Then, to use it, simply type in the input the organization or charity you want to donate to. For example simavi.
 
-See it in action: (TODO gif)
+Finally, to make sure everything works fine, you can preview the embeded iframe by clicking on the little preview icon.
+
+See it in action:
+(TODO gif)
 
 ## Development
 
-First, create a new Wordpress instance and have it run locally (for this demo I am using MAMP)
+First, create a new Wordpress instance and have it run locally (for this demo I am using MAMP).
 
 Then, cd into your pluggin folder and type the following command (don't forget to give it a descriptive name).
 
@@ -43,9 +57,9 @@ Then, cd into your pluggin folder and type the following command (don't forget t
 npx create-guten-block my-custom-block-from-scratch
 ```
 
-What we are using here is the super cool library: (Create Guten Block [Link](https://github.com/ahmadawais/create-guten-block/)) that allows to create Wordpress block with React by providing a boilerplate of code.
+What I am using here is the super cool library: (Create Guten Block [Link](https://github.com/ahmadawais/create-guten-block/)) which allows to create Wordpress block with React by providing a boilerplate of code.
 
-Finally to start developping cd into the plugin folder you just created and run the following command
+Finally to start developping, cd into the plugin folder you just created and run the following command
 
 ```bash
 npm start

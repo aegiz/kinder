@@ -22,7 +22,9 @@ class KinderBlockEdit extends Component {
 					<IconButton
 						label={this.state.editMode ? "Preview" : "Edit"}
 						icon={this.state.editMode ? "welcome-view-site" : "edit"}
-						onClick={() => this.setState({ editMode: !this.state.editMode })}
+						onClick={() =>
+							this.setState({ editMode: !this.state.editMode })
+						}
 					/>
 				</Toolbar>
 			</BlockControls>
@@ -36,11 +38,15 @@ class KinderBlockEdit extends Component {
 			<div>
 				{this.state.editMode && (
 					<div>
-						<div className="kinder-info">Kindly donate to this charity:</div>
+						<div className="kinder-info">
+							Kindly donate to this charity:
+						</div>
 						<TextControl
-							placeholder="Write here the name of the charity"
+							placeholder="(for ex: simavi)"
 							value={attributes.kinderIframe}
-							onChange={(newtext) => setAttributes({ kinderIframe: newtext })}
+							onChange={(newtext) =>
+								setAttributes({ kinderIframe: newtext })
+							}
 						/>
 					</div>
 				)}
@@ -49,11 +55,13 @@ class KinderBlockEdit extends Component {
 						<Disabled>
 							<iframe
 								className="kinder-iframe"
-								src={`https://embed.joinkinder.org/donate/?cause=${attributes.kinderIframe}`}
+								src={`https://embed.joinkinder.org/donate/?cause=${
+									attributes.kinderIframe
+								}`}
 								frameborder="0"
 								allow="autoplay; encrypted-media"
 								allowfullscreen
-							></iframe>
+							/>
 						</Disabled>
 					</Placeholder>
 				)}
@@ -80,11 +88,13 @@ registerBlockType("cgb/block-kinder-block", {
 		return (
 			<iframe
 				className="kinder-iframe"
-				src={`https://embed.joinkinder.org/donate/?cause=${attributes.kinderIframe}`}
+				src={`https://embed.joinkinder.org/donate/?cause=${
+					attributes.kinderIframe
+				}`}
 				frameborder="0"
 				allow="autoplay; encrypted-media"
 				allowfullscreen
-			></iframe>
+			/>
 		);
 	},
 });
