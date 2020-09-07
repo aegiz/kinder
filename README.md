@@ -7,7 +7,7 @@ This is a custom Wordpress/Gutemberg plugin that will import automatically a kin
 -  React
 -  PHP
 
-## Project Structure (TODO)
+## Project Structure
 
 ```sh
 .
@@ -45,7 +45,7 @@ Then, to use it, simply type in the input the organization or charity you want t
 Finally, to make sure everything works fine, you can preview the embeded iframe by clicking on the little preview icon.
 
 See it in action:
-(TODO gif)
+![alt text](demo/demo.gif)
 
 ## Development
 
