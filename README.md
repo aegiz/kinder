@@ -18,7 +18,7 @@ This is a custom Wordpress/Gutemberg plugin that will import automatically a kin
 ├── blocks.js                 # This file initialize the JS.
 ├── common.scss               # This style file include things like variables and mixins that are used across the project.
 ├── demo/                     # This folder contains all the demo files.
-│   └── kinder-block-demo.zip # Final plugin archive.
+│   └── kinder-block-demo.zip # Final plugin archive (this archive contains all the files except the node_modules dependancies).
 │   └── demo.mov              # Quick demo on the Wordpress UI.
 │   └── demo.gif              # Quick demo in GIF format.
 ├── init.php                  # This file initialize the PHP plugin.
